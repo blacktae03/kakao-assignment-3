@@ -70,6 +70,14 @@ def get_todos(db: Session = Depends(get_db)):
     return db.query(TodoModel).all()
 
 
+@app.get("/todos/{todo_id}", response_model=TodoResponse)
+def get_todo(todo_id: int, db: Session = Depends(get_db)):
+    db_todo = db.query(TodoModel).filter(TodoModel.id == todo_id).first()
+    if not db_todo:
+        raise HTTPException(status_code=404, detail="Todo not found")
+    return db_todo
+
+
 @app.post("/todos", response_model=TodoResponse, status_code=201)
 def create_todo(todo: TodoCreate, db: Session = Depends(get_db)):
     db_todo = TodoModel(title=todo.title, completed=False)
