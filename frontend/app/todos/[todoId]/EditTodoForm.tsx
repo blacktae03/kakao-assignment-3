@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useTransition, useState } from "react";
-import { updateTodo } from "@/app/actions";
+import { updateTodo } from "@/app/mutations";
 import type { Todo } from "@/app/actions";
 
 export default function EditTodoForm({ todo }: { todo: Todo }) {

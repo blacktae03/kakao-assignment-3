@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTransition } from "react";
-import { updateTodo, deleteTodo } from "@/app/actions";
+import { updateTodo, deleteTodo } from "@/app/mutations";
 import type { Todo } from "@/app/actions";
 
 export default function TodoItem({ todo }: { todo: Todo }) {

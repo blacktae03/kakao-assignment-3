@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
-import { createTodo } from "@/app/actions";
+import { createTodo } from "@/app/mutations";
 
 export default function NewTodoPage() {
   const router = useRouter();
